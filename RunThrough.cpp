@@ -16,9 +16,12 @@ int main()
     menu.printPlayerMap(); //print out the map player should see, NOT the over all, its just rooms player've discovered
     menu.printRoom(); // print out the room lay out player is in and player position in the room and the monster positions
     
-    
+    cin << inpiut;
+
     
     while (input != "QUIT"){ // it keeps running take in player action n stuch and play the game
+        cin << inpiut;
+
         
         if (input == "map"){
             player.printPlayerMap();

@@ -1,33 +1,39 @@
-#include "Move.h"
-#include "Def.h"
 #include <iostream>
 
+#include "../include/Defs.h"
+#include "../include/Room.h"
+#include "../include/Move.h"
+
+
 bool Move::moveLeft(){
-  if( !(currentRoom.getSpot().getDoorLocked()) && (currentRoom.getSpot().getIsDoor()) && currentSpaceX == UP_LEFT_EDGE_ROOM )
+  if( !(currentRoom.getSpot(spaceX, spaceY).getDoorLocked()) && (currentRoom.getSpot(spaceX, spaceY).getIsDoor()) && spaceX == UP_LEFT_EDGE_ROOM )
   {
      //std::cout << d_moveToLeftRoom;
      return moveRoomLeft();
   }
 
-  if( currentSpaceX - 1 >= 0 && (currentRoom.getSpot(currentSpaceX - 1, currentSpaceY).getObstacle()) )
+  if( spaceX - 1 >= 0 && (currentRoom.getSpot(spaceX - 1, spaceY).getObstacle()) )
   {
      //std::cout << d_obstacleFailure;
      return false;
   }
 
-  if(currentSpaceX - 1 >= 0)
+  if(spaceX - 1 >= 0)
   {
      //std::cout << d_moveLeft;
-     currentSpaceX--;
+     spaceX--;
      return true;
+  }
+  else{
+   return false;
   }
 }
 bool Move::moveRoomLeft()
 {
-  if(Map[currentRoomX -1][currentRoomY] != 0){
-   currentRoomX--;
-   currentRoom = Map.Map[currentRoomX][currentRoomY];
-   currentSpaceX = DOWN_RIGHT_EDGE_ROOM;
+  if(Map[roomX -1][roomY].exists()){
+   roomX--;
+   currentRoom = Map[roomX][roomY];
+   spaceX = DOWN_RIGHT_EDGE_ROOM;
    return true;
   }
   else{
@@ -39,31 +45,34 @@ bool Move::moveRoomLeft()
 
 bool Move::moveRight(){
 
-  if( !(currentRoom.getSpot().getDoorLocked()) && (currentRoom.getSpot().getIsDoor()) && currentSpaceX == DOWN_RIGHT_EDGE_ROOM)
+  if( !(currentRoom.getSpot(spaceX, spaceY).getDoorLocked()) && (currentRoom.getSpot(spaceX, spaceY).getIsDoor()) && spaceX == DOWN_RIGHT_EDGE_ROOM)
   {
      //std::cout << d_moveToRightRoom;
      return moveRoomRight();
   }
 
-  if( (currentSpaceX + 1 <= SIZE_OF_ROOM - 1) && (currentRoom.getSpot(currentSpaceX + 1, currentSpaceY).getObstacle()) )
+  if( (spaceX + 1 <= SIZE_OF_ROOM - 1) && (currentRoom.getSpot(spaceX + 1, spaceY).getObstacle()) )
   {
      //std::cout << d_obstacleFailure;
      return false;
   }
 
-  if(currentSpaceX + 1 <= DOWN_RIGHT_EDGE_ROOM)
+  if(spaceX + 1 <= DOWN_RIGHT_EDGE_ROOM)
   {
      //std::cout << d_moveRight;
-     currentSpaceX++;
+     spaceX++;
      return true;
+  }else
+  {
+     return false;
   }
 }
 bool Move::moveRoomRight()
 {
-  if(Map[currentRoomX + 1][currentRoomY] != 0){
-   currentRoomX++;
-   currentRoom = Map.Map[currentRoomX][currentRoomY];
-   currentSpaceX = UP_LEFT_EDGE_ROOM; // basically 0
+  if(Map[roomX + 1][roomY].exists()){
+   roomX++;
+   currentRoom = Map[roomX][roomY];
+   spaceX = UP_LEFT_EDGE_ROOM; // basically 0
    return true;
   }
   else{
@@ -74,31 +83,34 @@ bool Move::moveRoomRight()
 
 bool Move::moveUp(){
 
-  if( !(currentRoom.getSpot().getDoorLocked()) && (currentRoom.getSpot().getIsDoor()) && currentSpaceY == UP_LEFT_EDGE_ROOM)
+  if( !(currentRoom.getSpot(spaceX, spaceY).getDoorLocked()) && (currentRoom.getSpot(spaceX, spaceY).getIsDoor()) && spaceY == UP_LEFT_EDGE_ROOM)
   {
      //std::cout << d_moveToUpRoom;
      return moveRoomUp();
   }
 
-  if( (currentSpace Y - 1 >= UP_LEFT_EDGE_ROOM) && (currentRoom.getSpot(currentSpaceX, currentSpaceY - 1).getObstacle()) )
+  if( (spaceY - 1 >= UP_LEFT_EDGE_ROOM) && (currentRoom.getSpot(spaceX, spaceY - 1).getObstacle()) )
   {
      //std::cout << d_obstacleFailure;
      return false;
   }
 
-  if(currentSpaceY - 1 >= UP_LEFT_EDGE_ROOM)
+  if(spaceY - 1 >= UP_LEFT_EDGE_ROOM)
   {
      //std::cout << d_moveRight;
-     currentSpaceY--;
+     spaceY--;
      return true;
+  }else
+  {
+     return false;
   }
 }
 bool Move::moveRoomUp()
 {
-  if(Map[currentRoomX][currentRoomY - 1] != 0){
-   currentRoomY--;
-   currentRoom = Map.Map[currentRoomX][currentRoomY];
-   currentSpaceY = DOWN_RIGHT_EDGE_ROOM; // basically 0
+  if(Map[roomX][roomY - 1].exists()){
+   roomY--;
+   currentRoom = Map[roomX][roomY];
+   spaceY = DOWN_RIGHT_EDGE_ROOM; // basically 0
    return true;
   }
   else{
@@ -109,31 +121,35 @@ bool Move::moveRoomUp()
 
 
 bool Move::moveDown(){
-  if( !(currentRoom.getSpot().getDoorLocked()) && (currentRoom.getSpot().getIsDoor()) && currentSpaceY == DOWN_RIGHT_EDGE_ROOM)
+  if( !(currentRoom.getSpot(spaceX, spaceY).getDoorLocked()) && (currentRoom.getSpot(spaceX,spaceY).getIsDoor()) && spaceY == DOWN_RIGHT_EDGE_ROOM)
   {
      //std::cout << d_moveToDownRoom;
      return moveRoomDown();
   }
 
-  if( (currentSpace Y + 1 <= DOWN_RIGHT_EDGE_ROOM) && (currentRoom.getSpot(currentSpaceX, currentSpaceY + 1).getObstacle()) )
+  if( (spaceY + 1 <= DOWN_RIGHT_EDGE_ROOM) && (currentRoom.getSpot(spaceX, spaceY + 1).getObstacle()) )
   {
      //std::cout << d_obstacleFailure;
      return false;
   }
 
-  if(currentSpaceY + 1 <= DOWN_RIGHT_EDGE_ROOM)
+  if(spaceY + 1 <= DOWN_RIGHT_EDGE_ROOM)
   {
      //std::cout << d_moveRight;
-     currentSpaceY++;
+     spaceY++;
      return true;
+  } else
+  {
+     return false;
   }
 }
+
 bool Move::moveRoomDown()
 {
-  if(Map[currentRoomX][currentRoomY + 1] != 0){
-   currentRoomY++;
-   currentRoom = Map.Map[currentRoomX][currentRoomY];
-   currentSpaceY = UP_LEFT_EDGE_ROOM; // basically 0
+  if(Map[roomX][roomY + 1].exists()){
+   roomY++;
+   currentRoom = Map[roomX][roomY];
+   spaceY = UP_LEFT_EDGE_ROOM; // basically 0
    return true;
   }
   else{

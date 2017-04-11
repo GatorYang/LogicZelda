@@ -12,26 +12,30 @@ using namespace std;
 
 class map {
 private:
-	int doorCount;
-	int discoveredRoomCount;
-	int remainingRoomCount;
+	//int doorCount;
+	//int discoveredRoomCount;
+//	int remainingRoomCount;
 	//int [][] activeRoomLocation;
 	int mainMap [4][4] = {{0}}; 
 	char playerMap [4][4] = {""};
+	// player's room location in side the whole map
 	int placeHolderX;
 	int placeHolderY;
+//	int playerRoomX;
+//	int playerRoomY;
 	
 public:
 	void MakeMap();
 	void PlayerMapPrint();
 	void MakePlayerMap();
-	bool MapVerification();
+//	bool MapVerification();
 	// int [][] RandomSetRoom();
 	void PrintMap();
 	void UpdatePlayerMap();
-	void DoorConnection();
+//	void DoorConnection();
 	// void UpdateRoomLocation()
-	void TravelRoom();
+//	void TravelRoom();
+	bool isRoomLeft();
 };
 
 void map::MakeMap(){
@@ -143,6 +147,14 @@ void map::UpdatePlayerMap(){
 	playerMap[0][placeHolderY] = 'X'; 
 	
 };
+
+bool isRoomLeft (){
+	
+
+};
+
+
+
 
 
 #endif

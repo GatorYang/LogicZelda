@@ -1,6 +1,5 @@
 #ifndef SPACE_H
 #define SPACE_H
-#include "Defs.h"
 
 class Space
 {
@@ -10,9 +9,9 @@ class Space
       /** Constructor for only spaces */
       Space(int value);
       /** Constructor to include a door */
-      Space(int value, bool hasDoor);
+      //Space(int value, bool hasDoor);
       /** Constructor to tell whether the door is unlocked or locked */
-      Space(int value, bool hasDoor, bool isDoorLocked);
+      //Space(int value, bool hasDoor, bool isDoorLocked);
 
       /** Default destructor */
       virtual ~Space();

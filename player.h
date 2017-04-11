@@ -1,5 +1,6 @@
 #include <iostream>
 
+using namespace std;
 
 class player{
 private:
@@ -16,11 +17,11 @@ public:
     }
     
     void changeScore(int scoreChange){
-        socres += scoreChange;
+        scores += scoreChange;
     }
     
     void changeHealth(int healthChange){
-        health += healthChange
+        health += healthChange;
     }
     
     void changeKeys(int keyChange){
@@ -31,7 +32,7 @@ public:
         positionX = posX;
     }
     
-    void changePositionX(int posY){
+    void changePositionY(int posY){
         positionY = posY;
     }
     
@@ -58,4 +59,4 @@ public:
     int getY(){
         return positionY;
     }
-}
+};
