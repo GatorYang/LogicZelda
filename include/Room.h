@@ -15,11 +15,15 @@ class Room
 	  */
       Space getSpot(int x, int y) { return spots[x][y]; }
       bool exists(){ return real;}
+      
+      Room(int v);
+      
+      int getMonsterX();
+      int getMonsterY();
 
 
       /// 0: Empty 1:Monster 2: Obstacle 3: Door
       Room(std::vector< std::vector<int> >spaceValues);
-      Room();
       
       void printRoom();
 

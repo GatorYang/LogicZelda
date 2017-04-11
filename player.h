@@ -12,6 +12,12 @@ private:
     int positionY;
     
 public:
+    player()
+    {
+        name = "";
+        score = 0;
+        health = 10;
+    }
     void setName(string newName){
         name == newName;
     }

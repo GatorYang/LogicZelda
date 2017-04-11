@@ -2,7 +2,12 @@
 #define DungeonGeneration_H
 
 #include <vector>
+#include "Room.h"
 
-void dungGen(std::vector< std::vector<Room> > dLayout);
+class DungeonGeneration
+{
+   public:
+   void dGen(std::vector< std::vector<Room> > &dLayout);
+};
 
 #endif // DungeonGeneration_H

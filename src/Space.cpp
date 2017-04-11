@@ -1,11 +1,11 @@
 #include "../include/Space.h"
 
-Space::Space()
-{
-   isMonster = false;
-   isObstacle = false;
-   hasDoor = false;
-}
+//Space::Space()
+//{
+//   isMonster = false;
+//   isObstacle = false;
+//   hasDoor = false;
+//}
 
 Space::Space(int value)
 {
@@ -21,7 +21,7 @@ Space::Space(int value)
    } else if (value == 3)
    {
       hasDoor = true;
-      doorIsLocked = true;
+      doorIsLocked = false;
    }
 
 }
@@ -43,7 +43,3 @@ Space::Space(int value)
 //   this->doorIsLocked = isDoorLocked;
 //}
 
-Space::~Space()
-{
-   //dtor
-}

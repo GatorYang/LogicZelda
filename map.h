@@ -40,6 +40,10 @@ public:
 	bool isRoomUp();
 	bool isRoomDown();
 	void CleanRoom(int x, int y);
+	int getY();
+	int getX();
+	void setX(int newx);
+	void setY(int newy);
 };
 
 void map::MakeMap(){
@@ -198,6 +202,22 @@ bool map::isRoomDown(){
 		return false;
 	else
 		return true;
+};
+
+int map::getX(){
+	return playerRoomX;	
+};
+
+int map::getY(){
+	return playerRoomY;	
+};
+
+void map::setX(int newx){
+	playerRoomX = newx;
+};
+
+void map::setY(int newy){
+	playerRoomY = newy;
 };
 
 

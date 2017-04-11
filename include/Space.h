@@ -13,9 +13,6 @@ class Space
       /** Constructor to tell whether the door is unlocked or locked */
       //Space(int value, bool hasDoor, bool isDoorLocked);
 
-      /** Default destructor */
-      virtual ~Space();
-
       /** Access isMonster
        * \return The current value of isMonster
        */

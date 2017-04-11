@@ -14,9 +14,8 @@
  * class Move;
  */
 
-std::vector< std::vector<Room> > dungeonLayout;
+std::vector< std::vector<Room> > dLayout;
 Move PlayerM;
-Room currentRoom;
 
 ///Dialog
 std::string d_obstacleFailure = "Looks like there is an object in the way. That fills you with determination!";
