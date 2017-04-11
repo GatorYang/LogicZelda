@@ -1,8 +1,9 @@
 #include <vector>;
 #include "../include/Room.h"
+#include "../include/Defs.h"
 
 void DungeonGeneration(std::vector< std::vector<Room> > dungeonLayout){
-   
+   for(int )
 }
 
 std::vector< std::vector<int> > t_1 = {{0,0,0,0,0,0,0},

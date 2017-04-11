@@ -20,6 +20,8 @@ class Room
       /// 0: Empty 1:Monster 2: Obstacle 3: Door
       Room(std::vector< std::vector<int> >spaceValues);
       Room();
+      
+      void printRoom();
 
    protected:
 

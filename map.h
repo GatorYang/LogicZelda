@@ -149,8 +149,11 @@ void map::UpdatePlayerMap(){
 };
 
 bool isRoomLeft (){
-	
-
+	if(mainMap[playerRoomX -1][playerRoomY] == 0){
+		return false;
+	}
+	else
+		return true;
 };
 
 

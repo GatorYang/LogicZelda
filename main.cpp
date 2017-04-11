@@ -3,6 +3,7 @@
 #include "player.h"
 #include "map.h"
 //#include "menu.h"
+#include "../include/Room.h"
 using namespace std;
 
 int main(){
@@ -34,8 +35,15 @@ int main(){
     cout << "You looks around, and this is the room you see:" << endl;
     //Print out starting layout.
     
-    room room;
-    room.makeRoom();
+    Room room = Room({{0,0,0,0,0,0,0},
+                                       {0,0,0,0,0,0,0},
+                                       {0,0,0,0,0,0,0},
+                                       {0,0,0,0,0,0,0},
+                                       {0,0,0,0,0,0,0},
+                                       {0,0,0,0,0,0,0},
+                                       {0,0,0,0,0,0,0},
+                                       });
+    room.printRoom();
     room.printRoom();
     
 
