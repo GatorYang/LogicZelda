@@ -21,8 +21,8 @@ private:
 	// player's room location in side the whole map
 	int placeHolderX;
 	int placeHolderY;
-//	int playerRoomX;
-//	int playerRoomY;
+	int playerRoomX;
+	int playerRoomY;
 	
 public:
 	void MakeMap();
@@ -36,6 +36,10 @@ public:
 	// void UpdateRoomLocation()
 //	void TravelRoom();
 	bool isRoomLeft();
+	bool isRoomRight();
+	bool isRoomUp();
+	bool isRoomDown();
+	void CleanRoom(int x, int y);
 };
 
 void map::MakeMap(){
@@ -146,18 +150,55 @@ void map::UpdatePlayerMap(){
 	playerMap[3][placeHolderX] = 'O'; 
 	playerMap[0][placeHolderY] = 'X'; 
 	
+	playerRoomX = placeHolderX;
+	playerRoomY = 3;
+	
 };
 
-bool isRoomLeft (){
-	if(mainMap[playerRoomX -1][playerRoomY] == 0){
+void map::CleanRoom(int x, int y){
+	playerMap[x][y] = '8';
+}
+
+bool map::isRoomLeft (){
+	if(playerRoomX -1 < 0){
+		return false;
+	}
+	else if(mainMap[playerRoomX -1][playerRoomY] == 0){
 		return false;
 	}
 	else
 		return true;
 };
 
+bool map::isRoomRight (){
+	if(playerRoomX +1 > 3)
+		return false;
+	else if(mainMap[playerRoomX + 1][playerRoomY] == 0){
+		return false;
+	}
+	else
+		return true;
+};
 
+bool map::isRoomUp(){
+	if(playerRoomY -1 < 0){
+		return false;
+	}
+	else if (mainMap[playerRoomX][playerRoomY - 1] == 0)
+		return false;
+	else
+		return true;
+};
 
+bool map::isRoomDown(){
+	if(playerRoomY + 1 > 3){
+		return false;
+	}
+	else if (mainMap[playerRoomX][playerRoomY + 1] == 0)
+		return false;
+	else
+		return true;
+};
 
 
 #endif

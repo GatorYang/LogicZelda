@@ -2,5 +2,6 @@
 #include "../include/DungeonGeneration.h"
 
 int main(){
+   dungGen(dungeonLayout);
    
 }

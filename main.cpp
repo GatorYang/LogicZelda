@@ -2,8 +2,8 @@
 // #include "dungeonGeration.h"
 #include "player.h"
 #include "map.h"
-//#include "menu.h"
-#include "../include/Room.h"
+#include "menu.h"
+#include "include/Room.h"
 using namespace std;
 
 int main(){
@@ -19,7 +19,7 @@ int main(){
     cin >> playername;
     steve.setName(playername);
     
-  //  menu menu;
+    menu menu;
     
     
     
@@ -32,10 +32,10 @@ int main(){
     m.UpdatePlayerMap();
     m.PlayerMapPrint();
     
-    cout << "You looks around, and this is the room you see:" << endl;
+    cout << "You look around, and this is the room you see:" << endl;
     //Print out starting layout.
     
-    Room room = Room({{0,0,0,0,0,0,0},
+    Room room =   Room({{0,0,0,0,0,0,0},
                                        {0,0,0,0,0,0,0},
                                        {0,0,0,0,0,0,0},
                                        {0,0,0,0,0,0,0},
