@@ -16,15 +16,17 @@ private:
 	//int discoveredRoomCount;
 //	int remainingRoomCount;
 	//int [][] activeRoomLocation;
-	int mainMap [4][4] = {{0}}; 
+//	int mainMap [4][4] = {{0}}; 
 	char playerMap [4][4] = {""};
 	// player's room location in side the whole map
 	int placeHolderX;
 	int placeHolderY;
-	int playerRoomX;
-	int playerRoomY;
+	
 	
 public:
+	int playerRoomX;
+	int playerRoomY;
+	int mainMap [4][4] = {{0}}; 
 	void MakeMap();
 	void PlayerMapPrint();
 	void MakePlayerMap();
@@ -44,6 +46,7 @@ public:
 	int getX();
 	void setX(int newx);
 	void setY(int newy);
+	int  getRoomValue();
 };
 
 void map::MakeMap(){
@@ -220,5 +223,16 @@ void map::setY(int newy){
 	playerRoomY = newy;
 };
 
+// int** map::getMainMap(){
+// 	int **p;
+	
+// 	for(int r = 0; r < mainMap(); r++){
+// 		for(int c = 0; c < mainMap[0].size())
+// 	}
+// }
+
+int map::getRoomValue(){
+	return mainMap[playerRoomX][playerRoomY];
+}
 
 #endif

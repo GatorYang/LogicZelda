@@ -3,6 +3,9 @@
 #include "../include/DungeonGeneration.h"
 
 int main(){
-   DungeonGeneration dungGen;
-   dungGen.dGen(dLayout);
+   Move PlayerM = Move();
+
+   PlayerM.printMap();
+   PlayerM.printRoom();
+
 }

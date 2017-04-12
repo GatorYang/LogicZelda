@@ -1,5 +1,5 @@
-#ifndef DungeonGeneration_H
-#define DungeonGeneration_H
+#ifndef DUNGEONGENERATION_H_INCLUDED
+#define DUNGEONGENERATION_H_INCLUDED
 
 #include <vector>
 #include "Room.h"
@@ -7,7 +7,7 @@
 class DungeonGeneration
 {
    public:
-   void dGen(std::vector< std::vector<Room> > &dLayout);
+   void dGen(Room** dLayout);
 };
 
 #endif // DungeonGeneration_H

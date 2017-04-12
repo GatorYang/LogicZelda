@@ -1,5 +1,5 @@
-#ifndef SPACE_H
-#define SPACE_H
+#ifndef SPACE_H_INCLUDED
+#define SPACE_H_INCLUDED
 
 class Space
 {
@@ -32,6 +32,9 @@ class Space
        * \return The current value of hasDoor
        */
       bool getIsDoor() { return hasDoor; }
+      int getMonVal() { return monVal;}
+
+      int getValue() { return value;}
 
    protected:
 
@@ -40,6 +43,8 @@ class Space
       bool isObstacle; //!< Member variable "isObstacle"
       bool hasDoor; //!< Member variable "hasDoor"
       bool doorIsLocked; //!< Member variable "hasDoor"
+      int value;
+      int monVal;
 };
 
 #endif // SPACE_H

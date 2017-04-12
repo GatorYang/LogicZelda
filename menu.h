@@ -2,7 +2,7 @@
 #define menu_H
 #include <string>
 #include <iostream>
-#include "player.h"
+//#include "player.h"
 
 using namespace std;
 

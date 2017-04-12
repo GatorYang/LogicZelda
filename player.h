@@ -11,6 +11,9 @@ private:
     int positionX;
     int positionY;
     
+    //I added this to make main work  - Robert 
+    int score;
+    
 public:
     player()
     {

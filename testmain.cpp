@@ -23,5 +23,9 @@ m.MakePlayerMap();
 m.UpdatePlayerMap();
 m.PlayerMapPrint();
 
+Room cRoom;
+
+cRoom.setUpRoom(m.getRoomValue);
+
 return 0;
 }

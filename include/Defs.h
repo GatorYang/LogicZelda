@@ -14,12 +14,6 @@
  * class Move;
  */
 
-std::vector< std::vector<Room> > dLayout;
-Move PlayerM;
 
-///Dialog
-std::string d_obstacleFailure = "Looks like there is an object in the way. That fills you with determination!";
-std::string d_noDoor = "Looks like there is not a door there.";
-std::string d_doorIsLocked = "Looks like that this door needs to be unlocked.";
 
 #endif // DEFS_H_INCLUDED
