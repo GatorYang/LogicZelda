@@ -4,8 +4,8 @@
 Space::Space()
 {
    isMonster = false;
-   isObstacle = false;
-   hasDoor = false;
+   obstacle = false;
+   door = false;
 }
 
 Space::Space(int num)
@@ -13,22 +13,36 @@ Space::Space(int num)
    value = num;
    if(value == 0){
       isMonster= false;
-      isObstacle= false;
+      obstacle= false;
       monVal = 0;
+      door = false;
 
    } else if (value == 20){
       isMonster = false;
-      isObstacle = true;
+      obstacle = true;
+      monVal = 0;
+      door = false;
    } else if (value >=  1 && value <= 16){
       isMonster =  true;
       monVal = value;
-      isObstacle = false;
+      obstacle = false;
+      door = false;
    } else if (value == 21)
    {
-      hasDoor = true;
+      door = true;
       doorIsLocked = false;
+      isMonster = false;
+      obstacle = false;
+      monVal = 0;
    }
 
+}
+
+void Space::killMon()
+{
+   isMonster = false;
+   monVal = 0;
+   value = 0;
 }
 
 //Space::Space(int value, bool hasDoor, bool isDoorLocked)

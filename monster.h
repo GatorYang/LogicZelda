@@ -10,7 +10,8 @@ private:
 public:
 	int getScore();
 	bool askQuestion();
-};
+	void addScore(int add); //Isaiah: added
+//}; moved 
 
 /**
  * Create and give attributes to the different monsters
@@ -120,11 +121,16 @@ monster(int monType)
 		score = 0;
 	}
 }
+
+};
+
 /**
  * Uses monster type to ask the corresponding questions
  * 
  * @return whether the player answer is correct or not
  */
+ 
+ // Isaiah: changed the how the answers are checked due to anwsers be char
 bool monster::askQuestion() {
 	bool correct = false;
 	char answer;
@@ -137,7 +143,7 @@ bool monster::askQuestion() {
 		cout << "should the hostess bring out?" << endl;
 		cout << "\nA.1 \nB.2 \nC.3 \nD.0" << endl;
 		cin >> answer;
-		if (answer == "B") {
+		if (answer == 'B') {
 			correct = true;
 		}
 		return correct;
@@ -157,7 +163,7 @@ bool monster::askQuestion() {
 		cout << "C.”Are you a liar?” " << endl;
 		cout << "D.”is left road leading to the ruin?”" << endl;
 		cin >> answer;
-		if (answer == "A") {
+		if (answer == 'A') {
 			correct = true;
 		}
 		
@@ -172,7 +178,7 @@ bool monster::askQuestion() {
 		cout << "\nA.Jasmine and Kanti \nB.Jasmine and Samir " << endl;
 		cout << "C.Kanti and Samir \nD.Jasmine, Kanti and Samir" << endl;
 		cin >> answer;
-		if (answer == "A") {
+		if (answer == 'A') {
 			correct = true;
 		}
 	} else if (type == 13) {
@@ -191,7 +197,7 @@ bool monster::askQuestion() {
 		cout << "not be true?" << endl;
 		cout << "\nA.Jones \nB.Smith \nC.Willams \nD.Can’t tell" << endl;
 		cin >> answer;
-		if (answer == "A") {
+		if (answer == 'A') {
 			correct = true;
 		}
 	} else if (type == 12) {
@@ -204,7 +210,7 @@ bool monster::askQuestion() {
 		cout << "A.Janice, Maggie, Fred \nB.Maggie, Fred, Janice " << endl;
 		cout << "C.Fred, Maggie, Janice \nD.Maggie, Janice, Fred " << endl;
 		cin >> answer;
-		if (answer == "C") {
+		if (answer == 'C') {
 			correct = true;
 		}
 	} else if (type == 11) {
@@ -217,7 +223,7 @@ bool monster::askQuestion() {
 		cout << "Behind which door is the lady?" << endl;
 		cout << "A.Both Door \nB.First Door \nC.Either Door \nD.Second Door" << endl;
 		cin >> answer;
-		if (answer == "D") {
+		if (answer == 'D') {
 			correct = true;
 		}
 	} else if (type == 10) {
@@ -225,7 +231,7 @@ bool monster::askQuestion() {
 		cout << "which do you light first, the newspaper, the candle or the lamp?" << endl;
 		cout << "A. The Newspaper \nB. The Lamp \nC. The Candle \nD. The Match" << endl;
 		cin >> answer;
-		if (answer == "D")
+		if (answer == 'D')
 		{
 			correct = true;
 		}
@@ -234,7 +240,7 @@ bool monster::askQuestion() {
 		cout << "First- Second- Third- Forth- Fifth- Sixth- Seventh- Eighth" << endl;
 		cout <<"A. First \nB. Second \nC. Third \nD. Forth \nE. Fifth \nF. Sixth \nG. Seventh \nH. Eighth" << endl;
 		cin >> answer;
-		if (answer == "D")
+		if (answer == 'D')
 		{
 			correct = true;
 		}
@@ -244,7 +250,7 @@ bool monster::askQuestion() {
 		cout << "what place are you in?" << endl;
 		cout << "A. 1st \nB. 2nd \nC. 3rd" << endl;
 		cin >> answer;
-		if(answer == "B")
+		if(answer == 'B')
 		{
 			correct = true;
 		}
@@ -252,7 +258,7 @@ bool monster::askQuestion() {
 		cout << "A farmer has 17 sheep and all but 9 die. How many are left?" << endl;
 		cout << "A. 0 \nB. 8 \nC. 9" << endl;
 		cin >> answer;
-		if(answer == "C")
+		if(answer == 'C')
 		{
 			correct = true;
 		}
@@ -261,7 +267,7 @@ bool monster::askQuestion() {
 		cout << "a hunter shoots and miss, how many birds left on the tree branch?" << endl;
 		cout << "A. 0 \nB. 1 \nC. 2 \nD. 3" << endl;
 		cin >> answer;
-		if(answer == "A")
+		if(answer == 'A')
 		{
 			correct = true;
 		}
@@ -272,7 +278,7 @@ bool monster::askQuestion() {
 		cout << "Who is the second youngest?" << endl;
 		cout << "A. Liam \nB. Mandy \nC.Tara \nD.Blake" << endl;
 		cin >> answer;
-		if(answer == "A")
+		if(answer == 'A')
 		{
 			correct = true;
 		}
@@ -282,7 +288,7 @@ bool monster::askQuestion() {
 		cout << "How long would it take for them to clean it together?" << endl;
 		cout << "A. 96 minutes \nB. 54 minutes \nC. 72 minutes \nD. 80 minutes" << endl;
 		cin >> answer;
-		if(answer == "C")
+		if(answer == 'C')
 		{
 			correct = true;
 		}
@@ -291,7 +297,7 @@ bool monster::askQuestion() {
 		cout << "A pound of feathers or a pound of gold" << endl;
 		cout << "A. Pound of Feathers \nB. Pound of Gold \nC. Neither" << endl;
 		cin >> answer;
-		if(answer == "C")
+		if(answer == 'C')
 		{
 			correct = true;
 		}
@@ -299,7 +305,7 @@ bool monster::askQuestion() {
 		cout << "Divide 40 by half and add ten. What is the answer?" << endl;
 		cout << "A. 30 \nB. 90 \nC. 25 \nD.100" << endl;
 		cin >> answer;
-		if(answer == "B")
+		if(answer == 'B')
 		{
 			correct = true;
 		}
@@ -309,19 +315,20 @@ bool monster::askQuestion() {
 		cout << "How old is she?" << endl;
 		cout << "A. 8 \nB. 12 \nC.25  \nD. 32" << endl;
 		cin >> answer;
-		if(answer == "B")
+		if(answer == 'B')
 		{
 			correct = true;
 		}
 	}
 	return correct;
 }
-}
-	
-}
+
+void monster::addScore(int add)
+{
+	score += add;
 }
 
-public void AddScore()
+/*public void AddScore()
 {
 	return score;
-}
+}*/

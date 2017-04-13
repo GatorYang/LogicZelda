@@ -21,7 +21,7 @@ class Space
       /** Access isObstacle
        * \return The current value of isObstacle
        */
-      bool getObstacle() { return isObstacle; }
+      bool isObstacle() { return obstacle; }
 
       /** Access doorIsLocked
        * \return The current value of doorIsLocked
@@ -31,17 +31,18 @@ class Space
       /** Access hasDoor
        * \return The current value of hasDoor
        */
-      bool getIsDoor() { return hasDoor; }
+      bool hasDoor() { return door; }
+      
       int getMonVal() { return monVal;}
-
       int getValue() { return value;}
+      void killMon();
 
    protected:
 
    private:
       bool isMonster; //!< Member variable "isMonster"
-      bool isObstacle; //!< Member variable "isObstacle"
-      bool hasDoor; //!< Member variable "hasDoor"
+      bool obstacle; //!< Member variable "isObstacle"
+      bool door; //!< Member variable "hasDoor"
       bool doorIsLocked; //!< Member variable "hasDoor"
       int value;
       int monVal;

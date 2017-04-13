@@ -47,6 +47,10 @@ public:
 	void setX(int newx);
 	void setY(int newy);
 	int  getRoomValue();
+	void moveDown();
+	void moveLeft();
+	void moveRight();
+	void moveUp();
 };
 
 void map::MakeMap(){
@@ -231,8 +235,56 @@ void map::setY(int newy){
 // 	}
 // }
 
-int map::getRoomValue(){
+/*int map::getRoomValue(){
 	return mainMap[playerRoomX][playerRoomY];
+}*/
+
+int map::getRoomValue(){
+	return mainMap[playerRoomY][playerRoomX];
+}
+
+void map::moveLeft()
+{
+	if(playerRoomX - 1 >= 0)
+	{
+		if(mainMap[playerRoomY][playerRoomX - 1] != 0)
+		{
+			playerRoomX--;
+		}
+	}
+}
+
+void map::moveRight()
+{
+	if(playerRoomX + 1 <= #)
+	{
+		if(mainMap[playerRoomY][playerRoomX + 1] != 0)
+		{
+			playerRoomX++;
+		}
+	}
+}
+
+void map::moveUp()
+{
+	if(playerRoomY - 1 >= 0)
+	{
+		if(mainMap[playerRoomY - 1][playerRoomX] != 0)
+		{
+			playerRoomY--;
+		}
+	}
+}
+
+void map::moveDown()
+{
+	if(playerRoomY + 1 <= 3)
+	{
+		if(mainMap[playerRoomY + 1][playerRoomX] != 0)
+		{
+			playerRoomY++;
+		}
+	}
 }
 
 #endif
