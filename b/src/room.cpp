@@ -1,6 +1,6 @@
-#include "../include/Room.h"
-#include "../include/Space.h"
-#include "../include/Defs.h"
+#include "../include/room.h"
+#include "../include/space.h"
+#include "../include/defs.h"
 #include <vector>
 #include <iostream>
 using namespace std;

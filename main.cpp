@@ -156,7 +156,7 @@ int main()
           defeat = true;
         } else
         {
-          cout << "Wrong answer. Looks like you take some damage. Try again." << endl;
+          cout << "\n\n\n\nWrong answer. Looks like you take some damage. Try again." << endl;
           player.changeHealth(-1);
           if(player.getHealth() <= 0)
             menu.playerDeath(player);

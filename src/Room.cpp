@@ -56,20 +56,20 @@ void Room::printRoom(){
    for(int r = 0; (unsigned) r < spots.size(); r++){
       for(int c = 0; (unsigned) c < spots[0].size(); c++){
          if(spaceR == r && spaceC == c)
-           cout << "웃" << " ";
+           cout << "웃" << "\t";
          else if (spots[r][c].getValue() >= 1 && spots[r][c].getValue() < MAX_Q) {
-            cout << "۩" << " ";
+            cout << "👹" << "\t";
          }else if(spots[r][c].getValue() == VALUE_DOOR)
          {
-            cout <<"۞" << " ";
+            cout <<"🚪"<< "\t";
          }else if(spots[r][c].getValue() == MAX_Q)
          {
-            cout <<"☠" << " ";
+            cout <<"🐉" << "\t";
          }else if(spots[r][c].getValue() == VALUE_OBS)
          {
-            cout <<"O" << " ";
+            cout <<"O" << "\t";
          }else
-          cout << "-" << " ";
+          cout << "🔳" << "\t";
       }
       std::cout << std::endl;
    }

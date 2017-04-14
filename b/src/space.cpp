@@ -1,4 +1,4 @@
-#include "../include/Space.h"
+#include "../include/space.h"
 #include <stdlib.h>
 
 Space::Space()

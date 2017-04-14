@@ -12,6 +12,8 @@ private:
 public:
     player()
     
+    void printPlayer();
+    
     void setName(string newName){
         name = newName;
     }
