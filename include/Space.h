@@ -3,6 +3,13 @@
 
 class Space
 {
+   private:
+      bool isMonster; //!< Member variable "isMonster"
+      bool obstacle; //!< Member variable "isObstacle"
+      bool door; //!< Member variable "door"
+      int value;
+      int monVal;
+      
    public:
       /** Default constructor */
       Space();
@@ -23,11 +30,6 @@ class Space
        */
       bool isObstacle() { return obstacle; }
 
-      /** Access doorIsLocked
-       * \return The current value of doorIsLocked
-       */
-      bool getDoorLocked() { return doorIsLocked; }
-
       /** Access hasDoor
        * \return The current value of hasDoor
        */
@@ -38,14 +40,6 @@ class Space
       void killMon();
 
    protected:
-
-   private:
-      bool isMonster; //!< Member variable "isMonster"
-      bool obstacle; //!< Member variable "isObstacle"
-      bool door; //!< Member variable "hasDoor"
-      bool doorIsLocked; //!< Member variable "hasDoor"
-      int value;
-      int monVal;
 };
 
 #endif // SPACE_H

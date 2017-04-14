@@ -39,7 +39,7 @@ int main()
   {
      cin.clear();
      cin >> input;
-    
+    //Who did this, why is it a series of if and not else if.
     if(!input.compare("HELP"))
     {
       menu.openmenu();
@@ -77,6 +77,10 @@ int main()
       int res = room.move('d');
       if(res > 1)
         map.moveDown();
+    }
+    else
+    {
+     cout<< "Incorrect input try again."; 
     }
     
     /* Monster Encounter */ 

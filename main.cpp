@@ -17,7 +17,9 @@ int main()
   string playerName = "";
   menu menu;
   
-  cout << "What is your name: ";
+  
+  
+  cout << "What is your name?: ";
   cin >> playerName;
   player.setName(playerName);
   cout << endl;
@@ -25,7 +27,7 @@ int main()
   map.MakePlayerMap();
   map.UpdatePlayerMap();
   map.PlayerMapPrint();
-  /*cout << "X: " << map.getX() << "Y: " << map.getY() << endl;*/
+  map.PrintMap();
   
   Room room;
   cout << "Room Value : " << map.getRoomValue() << endl;
@@ -39,7 +41,10 @@ int main()
   {
      cin.clear();
      cin >> input;
-    
+     
+     
+    /* Various Player Input */ 
+    //Compare returns 0 therefore we need ! to make it true. 
     if(!input.compare("HELP"))
     {
       menu.openmenu();
@@ -52,31 +57,68 @@ int main()
     {
       menu.playerDeath(player);
     }
+    if(!input.compare("SCORE"))
+    {
+      cout << "Score: " << player.getScores() << endl;
+    }
+    if(!input.compare("MAP")){
+      map.UpdatePlayerMap2();
+      map.PlayerMapPrint();
+    }
+    
     
     /* Movement */
     if(!input.compare("w"))
     {
       int res = room.move('w');
       if(res > 1)
-        map.moveUp();
+      {
+        if(map.moveUp())
+        {
+          room.setUpRoomInt(map.getRoomValue());
+          room.upRoom();
+          map.UpdatePlayerMap2();
+        }
+      }
     }
     if(!input.compare("a"))
     {
       int res = room.move('a');
       if(res > 1)
-        map.moveLeft();
+      {
+        if(map.moveLeft())
+        {
+          room.setUpRoomInt(map.getRoomValue());
+          room.leftRoom();
+          map.UpdatePlayerMap2();
+        }
+      }
     }
     if(!input.compare("s"))
     {
       int res = room.move('s');
       if(res > 1)
-        map.moveRight();
+      {
+        if(map.moveDown())
+        {
+          room.setUpRoomInt(map.getRoomValue());
+          room.downRoom();
+          map.UpdatePlayerMap2();
+        }
+      }
     }
     if(!input.compare("d"))
     {
       int res = room.move('d');
       if(res > 1)
-        map.moveDown();
+      {
+        if(map.moveRight())
+        {
+          room.setUpRoomInt(map.getRoomValue());
+          room.rightRoom();
+          map.UpdatePlayerMap2();
+        }
+      }
     }
     
     /* Monster Encounter */ 
@@ -99,11 +141,21 @@ int main()
             menu.playerDeath(player);
         }
         
+        if(defeat && room.getMonVal() == 16)
+        {
+          player.changeScore(42);
+          menu.winGame(player);
+        }
         if(defeat)
-           room.killMon();
+        {
+          room.killMon();
+          player.changeScore(1);
+        }
       }
     }
     
+    
+    /* Print out the Room at the end of each iteration. */
     room.printRoom();
   }
 }
