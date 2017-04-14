@@ -1,6 +1,4 @@
-#include <iostream>
 
-using namespace std;
 
 class player{
 private:
@@ -11,18 +9,11 @@ private:
     int positionX;
     int positionY;
     
-    //I added this to make main work  - Robert 
-    int score;
-    
 public:
     player()
-    {
-        name = "";
-        scores = 0;
-        health = 10;
-    }
+    
     void setName(string newName){
-        name == newName;
+        name = newName;
     }
     
     void changeScore(int scoreChange){

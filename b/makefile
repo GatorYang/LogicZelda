@@ -1,27 +1,39 @@
-HEADS =  map.h monster.h player.h include/Room.h include/Space.h menu.h
-CPP = main.cpp src/Room.cpp src/Space.cpp
+HEADS =  include/room.h include/defs.h include/space.h include/map.h include/player.h include/menu.h include/monster.h
+CPP = main.cpp src/room.cpp src/space.cpp  src/map.cpp src/player.cpp src/menu.cpp src/monster.cpp
 
-OBJS = main.o Space.o Room.o
+OBJS = main.o space.o room.o player.o map.o menu.o monster.o
 CC = g++
 DEBUG =
 CFLAGS = -Wall -c $(DEBUG) -std=c++11
 LFLAGS = -Wall $(DEBUG) -std=c++11
 DEPS = 
 
-created/game: $(OBJS)
-	$(CC) $(LFLAGS) $(OBJS) -o $@
+release/Project: $(OBJS)
+   $(CC) $(LFLAGS) $(OBJS) -o $@
 
-main.o: $(DEPS) monster.h player.h map.h menu.h
-	$(CC) $(CFLAGS) main.cpp
+main.o: $(DEPS)
+   $(CC) $(CFLAGS) main.cpp
 
-Room.o: $(DEPS) include/Room.h include/Defs.h
-	$(CC) $(CFLAGS) src/Room.cpp
+room.o: $(DEPS) include/room.h include/defs.h
+   $(CC) $(CFLAGS) src/room.cpp
 
-Space.o: $(DEPS) include/Space.h
-	$(CC) $(CFLAGS) src/Space.cpp
+space.o: $(DEPS) include/space.h
+   $(CC) $(CFLAGS) src/space.cpp
+   
+map.o: $(DEPS) include/map.h
+   $(CC) $(CFLAGS) src/map.cpp
+   
+player.o: $(DEPS) include/player.h
+   $(CC) $(CFLAGS) src/player.cpp
+   
+menu.o: $(DEPS) include/menu.h
+   $(CC) $(CFLAGS) src/menu.cpp
+
+monster.o: $(DEPS) include/monster.h
+   $(CC) $(CFLAGS) src/monster.cpp
 
 clean:
-	\rm *.o *~ edit
+   \rm *.o *~ edit
 
 tar:
-	\tar cfv  game.tar $(HEADS) $(CPP)
+   \tar cfv  game.tar $(HEADS) $(CPP)

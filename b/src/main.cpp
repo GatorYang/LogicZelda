@@ -41,19 +41,17 @@ int main()
   {
      cin.clear();
      cin >> input;
-     bool check = true;
+     
      
     /* Various Player Input */ 
     //Compare returns 0 therefore we need ! to make it true. 
     if(!input.compare("HELP"))
     {
       menu.openmenu();
-      check = false;
     }
     if(!input.compare("QUIT"))
     {
       menu.exitGame(player);
-      check = false;
     }
     if(player.getHealth() <=0)
     {
@@ -62,23 +60,11 @@ int main()
     if(!input.compare("SCORE"))
     {
       cout << "Score: " << player.getScores() << endl;
-      check = false;
     }
     if(!input.compare("MAP")){
       map.UpdatePlayerMap2();
       map.PlayerMapPrint();
-      check = false;
     }
-    if(!input.compare("HEALTH")){
-     cout << "Your current health is " << player.getHealth() << " Out of 10!" << endl;
-     check = false;
-    }
-    if(!input.compare("STUCK")){
-      cout << "welp, sorry, but you got stuck and starved to death :)" << endl;
-      menu.playerDeath(player);
-      check = false;
-    }
-    
     
     
     /* Movement */
@@ -94,7 +80,6 @@ int main()
           map.UpdatePlayerMap2();
         }
       }
-      check = false;
     }
     if(!input.compare("a"))
     {
@@ -108,7 +93,6 @@ int main()
           map.UpdatePlayerMap2();
         }
       }
-      check = false;
     }
     if(!input.compare("s"))
     {
@@ -122,7 +106,6 @@ int main()
           map.UpdatePlayerMap2();
         }
       }
-      check = false;
     }
     if(!input.compare("d"))
     {
@@ -136,12 +119,8 @@ int main()
           map.UpdatePlayerMap2();
         }
       }
-      check = false;
     }
     
-    if (check){
-      cout << "unaccaptable input!" << endl;
-    }
     /* Monster Encounter */ 
     if(room.getMonVal() >= 1 && room.getMonVal() <= 16)
     {

@@ -56,15 +56,15 @@ void Room::printRoom(){
    for(int r = 0; (unsigned) r < spots.size(); r++){
       for(int c = 0; (unsigned) c < spots[0].size(); c++){
          if(spaceR == r && spaceC == c)
-           cout << "P" << " ";
+           cout << "웃" << " ";
          else if (spots[r][c].getValue() >= 1 && spots[r][c].getValue() < MAX_Q) {
-            cout << "M" << " ";
+            cout << "۩" << " ";
          }else if(spots[r][c].getValue() == VALUE_DOOR)
          {
-            cout <<"D" << " ";
+            cout <<"۞" << " ";
          }else if(spots[r][c].getValue() == MAX_Q)
          {
-            cout <<"B" << " ";
+            cout <<"☠" << " ";
          }else if(spots[r][c].getValue() == VALUE_OBS)
          {
             cout <<"O" << " ";
@@ -302,7 +302,7 @@ void Room::downRoom()
 void Room::determineCount()
 {
    t_1Count = 0;
-   t_1Count = 0;
+   t_2Count = 0;
    t_3Count = 0;
    t_4Count = 0;
    t_5Count = 0;
@@ -324,7 +324,7 @@ void Room::determineCount()
    {
       for(int c = 0; (unsigned)c < t_2[r].size(); c++)
       {
-         if(t_1[r][c] >= 1 && t_2[r][c] <= MAX_Q)
+         if(t_2[r][c] >= 1 && t_2[r][c] <= MAX_Q)
          {
             t_2Count++;
          }
