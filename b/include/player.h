@@ -1,23 +1,29 @@
-
+#include <string>
 
 class player{
 private:
-    string name;
+    std::string name;
     int scores;
     int health;
     int keyNumbers;
     int positionX;
     int positionY;
+    std::string type;
     
 public:
-    player()
+    player();
     
+    /*Prints out the current picture of the player character*/
     void printPlayer();
     
-    void setName(string newName){
+    void setName(std::string newName){
         name = newName;
     }
     
+    void set(std::string in)
+    {
+       type = in; 
+    }
     void changeScore(int scoreChange){
         scores += scoreChange;
     }
@@ -38,7 +44,7 @@ public:
         positionY = posY;
     }
     
-    string getName(){
+    std::string getName(){
         return name;
     }
     

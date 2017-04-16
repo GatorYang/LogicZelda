@@ -1,14 +1,13 @@
 #include "../include/room.h"
 #include "../include/space.h"
-#include "../include/defs.h"
 #include <vector>
 #include <iostream>
 using namespace std;
 
 Room::Room(){
    real = false;
-   spaceC = 0;
-   spaceR = 0;
+   spaceC = 3;
+   spaceR = 3;
    monCount = 0;
    
    determineCount();
@@ -56,20 +55,20 @@ void Room::printRoom(){
    for(int r = 0; (unsigned) r < spots.size(); r++){
       for(int c = 0; (unsigned) c < spots[0].size(); c++){
          if(spaceR == r && spaceC == c)
-           cout << "☺" << " ";
+           cout << "웃" << "\t";
          else if (spots[r][c].getValue() >= 1 && spots[r][c].getValue() < MAX_Q) {
-            cout << "۩" << " ";
+            cout << "👹" << "\t";
          }else if(spots[r][c].getValue() == VALUE_DOOR)
          {
-            cout <<"۞" << " ";
+            cout <<"🚪"<< "\t";
          }else if(spots[r][c].getValue() == MAX_Q)
          {
-            cout <<"☠" << " ";
+            cout <<"🐉" << "\t";
          }else if(spots[r][c].getValue() == VALUE_OBS)
          {
-            cout <<"O" << " ";
+            cout <<"O" << "\t";
          }else
-          cout << "-" << " ";
+          cout << "🔳" << "\t";
       }
       std::cout << std::endl;
    }

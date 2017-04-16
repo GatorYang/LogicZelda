@@ -50,9 +50,8 @@ public:
 		cout << "Type in 'HELP' to pull up instructions" << endl;
 		cout << "Type in 'QUIT' to exit the game" << endl;
 		cout << "Type in 'MAP' to see dungeon map" << endl;
-		cout << "Type in 'MAP' to see dungeon map" << endl;
 		cout << "Type in 'Health' to see player health" << endl;
-		cout << "Defeat all monsters to move on! D's are doors, M's are monsters and P is player" << endl;
+		cout << "Defeat all monsters to move on! 🚪's are doors, 👹's are monsters and 웃is player" << endl;
 	}
 	
 	void exitGame(player p)

@@ -5,8 +5,11 @@
 #include <ctime>
 #include <chrono>
 
+#include "../include/map.h"
+
 using namespace std;
 
+//Uses a random generator based on the time to formulate the dunguen map.
 void map::MakeMap(){
 	mt19937 engine(time(0)); 
 	uniform_int_distribution<int> startRoom(0,3);
@@ -79,7 +82,7 @@ void map::MakeMap(){
 		}
 	}
 }
-
+//Prints out the back-end map... purely for developer purposes. 
 void map::PrintMap(){
 	for(int i = 0; i < 4; i++){
 		for(int j = 0; j < 4; j++){
@@ -90,6 +93,7 @@ void map::PrintMap(){
 	}
 };
 
+//Prints out the player map.
 void map::PlayerMapPrint(){
 	cout<< "Dungeon Floor Map" << endl;
 	cout<< "O is discovered room." << endl;
@@ -103,6 +107,7 @@ void map::PlayerMapPrint(){
 	}
 };
 
+//Makes base of the player Map.
 void map::MakePlayerMap(){
 	for(int i = 0; i < 4; i++){
 		for(int j = 0; j < 4; j++){
@@ -111,6 +116,7 @@ void map::MakePlayerMap(){
 	}
 };
 
+//Makes the actual player map based on the random generation from MakeMap();
 void map::UpdatePlayerMap(){
 	playerMap[3][placeHolderX] = 'O'; 
 	playerMap[0][placeHolderY] = 'X'; 
@@ -119,6 +125,7 @@ void map::UpdatePlayerMap(){
 	playerRoomY = 3;
 	
 };
+
 //Makes An updated version of player map. 
 void map:: UpdatePlayerMap2(){
 	playerMap[playerRoomY][playerRoomX] = 'O';
@@ -128,6 +135,7 @@ void map::CleanRoom(int x, int y){
 	playerMap[x][y] = '8';
 }
 
+//Checks to see if there is a room to the left of current room.
 bool map::isRoomLeft (){
 	if(playerRoomX -1 < 0){
 		return false;
@@ -139,6 +147,7 @@ bool map::isRoomLeft (){
 		return true;
 };
 
+//Checks to see if there is a room to the right of current room.
 bool map::isRoomRight (){
 	if(playerRoomX +1 > 3)
 		return false;
@@ -149,6 +158,7 @@ bool map::isRoomRight (){
 		return true;
 };
 
+//Checks to see if there is a room to the above of current room.
 bool map::isRoomUp(){
 	if(playerRoomY -1 < 0){
 		return false;
@@ -159,6 +169,7 @@ bool map::isRoomUp(){
 		return true;
 };
 
+//Checks to see if there is a room to the below of current room.
 bool map::isRoomDown(){
 	if(playerRoomY + 1 > 3){
 		return false;
@@ -169,38 +180,32 @@ bool map::isRoomDown(){
 		return true;
 };
 
+//Get method for Column of current room.
 int map::getX(){
 	return playerRoomX;	
 };
 
+//Get method for row of current room.
 int map::getY(){
 	return playerRoomY;	
 };
 
+//Set Method
 void map::setX(int newx){
 	playerRoomX = newx;
 };
 
+//Set Method
 void map::setY(int newy){
 	playerRoomY = newy;
 };
 
-// int** map::getMainMap(){
-// 	int **p;
-	
-// 	for(int r = 0; r < mainMap(); r++){
-// 		for(int c = 0; c < mainMap[0].size())
-// 	}
-// }
-
-/*int map::getRoomValue(){
-	return mainMap[playerRoomX][playerRoomY];
-}*/
-
+//Gets room value of current room for Room layout header.
 int map::getRoomValue(){
 	return mainMap[playerRoomY][playerRoomX];
 }
 
+//Checks to see if there is a room to the left of current room.
 bool map::moveLeft()
 {
 	if(playerRoomX - 1 >= 0)
@@ -218,6 +223,7 @@ bool map::moveLeft()
 	return false;
 }
 
+//Checks to see if there is a room to the right of current room.
 bool map::moveRight()
 {
 					// I changed # to value 3, i think that should be correct. 
@@ -236,6 +242,7 @@ bool map::moveRight()
 	return false;
 }
 
+//Checks to see if there is a room to the above of current room.
 bool map::moveUp()
 {
 	if(playerRoomY - 1 >= 0)
@@ -253,6 +260,7 @@ bool map::moveUp()
 	return false;
 }
 
+//Checks to see if there is a room to the below of current room.
 bool map::moveDown()
 {
 	if(playerRoomY + 1 <= 3)

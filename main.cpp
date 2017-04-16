@@ -6,10 +6,48 @@
 #include <vector>
 #include "include/Room.h"
 #include "monster.h"
+#include <unistd.h> // for sleep()
+
 using namespace std;
+
+void animation(string ani){
+	cout << ani << std::flush;
+    for (int x = 0; x < 0; x++ ) {
+        sleep(1);
+        cout  << "\b\\" << flush;
+        sleep(1);
+        cout  << "\b|" << flush;
+        sleep(1);
+        cout  << "\b/" << flush;
+        sleep(1);
+        cout  << "\b-" << flush;
+    }
+}
+
+
+void startUp()
+{
+  animation("Starting Up...");
+    cout << endl;
+    animation("Looking for the Map...");
+    cout << endl;
+    animation("Finding Rooms...");
+    cout << endl;
+    animation("Understanding Monsters...");
+    cout << endl;
+    animation ("Getting Question...");
+    cout << endl;
+    
+    cout<<"Done..." << endl;
+    cout << "Team-22 Presents:"<<endl;
+    for(int x = 0; x < 20; x ++)
+    cout<<endl;
+}
 
 int main()
 {
+  startUp();
+  
   map map;
   map.MakeMap();
   
@@ -21,6 +59,9 @@ int main()
   
   cout << "What is your name?: ";
   cin >> playerName;
+  cin.clear();
+  cin.ignore(10000, '\n'); /* Clears out the input incase the user includes multiple words seperated by spaces. */
+  
   player.setName(playerName);
   cout << endl;
   
@@ -39,8 +80,11 @@ int main()
   /*Game Loop*/
   while(1)
   {
-     cin.clear();
+     
+     cout << "Input: ";
      cin >> input;
+     cout << endl;
+     cin.ignore(10000, '\n');
      bool check = true;
      
     /* Various Player Input */ 

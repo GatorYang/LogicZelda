@@ -35,8 +35,16 @@ class Space
        */
       bool hasDoor() { return door; }
       
+      /*Returns current monster value of the current space
+      0: empty
+      1~MAX_Q-1 = monster
+      MAX_Q = boss*/
       int getMonVal() { return monVal;}
+      
+      /*Returns value of the space*/
       int getValue() { return value;}
+      
+      /*Kill the current monster in the space*/
       void killMon();
 
    protected:
